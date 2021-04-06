@@ -1,0 +1,17 @@
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Business\bin\Debug\net5.0\JWTProject.Business.deps.json
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Business\bin\Debug\net5.0\JWTProject.Business.dll
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Business\bin\Debug\net5.0\ref\JWTProject.Business.dll
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Business\bin\Debug\net5.0\JWTProject.Business.pdb
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Business\bin\Debug\net5.0\JWTProject.DataAccess.dll
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Business\bin\Debug\net5.0\JWTProject.Entities.dll
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Business\bin\Debug\net5.0\JWTProject.DataAccess.pdb
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Business\bin\Debug\net5.0\JWTProject.Entities.pdb
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Business\obj\Debug\net5.0\JWTProject.Business.csprojAssemblyReference.cache
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Business\obj\Debug\net5.0\JWTProject.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Business\obj\Debug\net5.0\JWTProject.Business.AssemblyInfoInputs.cache
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Business\obj\Debug\net5.0\JWTProject.Business.AssemblyInfo.cs
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Business\obj\Debug\net5.0\JWTProject.Business.csproj.CoreCompileInputs.cache
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Business\obj\Debug\net5.0\JWTProject.Business.csproj.CopyComplete
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Business\obj\Debug\net5.0\JWTProject.Business.dll
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Business\obj\Debug\net5.0\ref\JWTProject.Business.dll
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Business\obj\Debug\net5.0\JWTProject.Business.pdb

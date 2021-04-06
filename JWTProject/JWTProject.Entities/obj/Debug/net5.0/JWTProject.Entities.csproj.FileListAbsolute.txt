@@ -9,3 +9,4 @@ C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Entiti
 C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Entities\obj\Debug\net5.0\JWTProject.Entities.dll
 C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Entities\obj\Debug\net5.0\ref\JWTProject.Entities.dll
 C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Entities\obj\Debug\net5.0\JWTProject.Entities.pdb
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Entities\obj\Debug\net5.0\JWTProject.Entities.csprojAssemblyReference.cache

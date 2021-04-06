@@ -10,13 +10,13 @@ namespace JWTProject.DataAccess.Abstracts
 {
     public interface IGenericDal<TEntity> where TEntity : class, IEntity, new()
     {
-        Task<List<TEntity>> GetAll();
-        Task<List<TEntity>> GetAllByFilter(Expression<Func<TEntity, bool>> filter);
-        Task<TEntity> GetById(int id);
-        Task<TEntity> GetByFilter(Expression<Func<TEntity, bool>> filter);
-        Task Update(TEntity entity);
-        Task Add(TEntity entity);
-        Task Remove(TEntity entity);
+        Task<List<TEntity>> GetAllAsync();
+        Task<List<TEntity>> GetAllByFilterAsync(Expression<Func<TEntity, bool>> filter);
+        Task<TEntity> GetByIdAsync(int id);
+        Task<TEntity> GetByFilterAsync(Expression<Func<TEntity, bool>> filter);
+        Task UpdateAsync(TEntity entity);
+        Task AddAsync(TEntity entity);
+        Task RemoveAsync(TEntity entity);
 
     }
 }
