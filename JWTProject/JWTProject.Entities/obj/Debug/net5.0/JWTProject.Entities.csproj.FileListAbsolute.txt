@@ -2,6 +2,7 @@ C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Entiti
 C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Entities\bin\Debug\net5.0\JWTProject.Entities.dll
 C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Entities\bin\Debug\net5.0\ref\JWTProject.Entities.dll
 C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Entities\bin\Debug\net5.0\JWTProject.Entities.pdb
+C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Entities\obj\Debug\net5.0\JWTProject.Entities.csprojAssemblyReference.cache
 C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Entities\obj\Debug\net5.0\JWTProject.Entities.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Entities\obj\Debug\net5.0\JWTProject.Entities.AssemblyInfoInputs.cache
 C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Entities\obj\Debug\net5.0\JWTProject.Entities.AssemblyInfo.cs
@@ -9,4 +10,3 @@ C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Entiti
 C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Entities\obj\Debug\net5.0\JWTProject.Entities.dll
 C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Entities\obj\Debug\net5.0\ref\JWTProject.Entities.dll
 C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Entities\obj\Debug\net5.0\JWTProject.Entities.pdb
-C:\Users\Blackerback\OneDrive\Masaüstü\JWTExample\JWTProject\JWTProject.Entities\obj\Debug\net5.0\JWTProject.Entities.csprojAssemblyReference.cache

@@ -5,6 +5,7 @@ using JWTProject.Business.ValidationRules.FluentValidation;
 using JWTProject.DataAccess.Abstracts;
 using JWTProject.DataAccess.Concrete.EntityFramework.Repository;
 using JWTProject.Entities.DTO.ProductDtos;
+using JWTProject.Entities.DTO.UserDtos;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -34,9 +35,12 @@ namespace JWTProject.Business.DependencyResolvers.MicrosoftIoC
             services.AddScoped<IRoleDal, EfRoleRepository>();
             services.AddScoped<IRoleService, RoleManager>();
 
-            services.AddTransient<IValidator<AddProductDto>, ProductAddDtoValidator>();
-            services.AddTransient<IValidator<UpdateProductDto>, ProductUpdateDtoValidator>();
+            services.AddScoped<IJwtService, JwtManager>();
 
+            services.AddTransient<IValidator<AddProductDto>, ProductAddDtoValidator>();
+            services.AddTransient<IValidator<UpdateProductDto>, ProductUpdateDtoValidator>(); 
+            services.AddTransient<IValidator<UserLoginDto>, UserLoginDtoValidator>();
+            services.AddTransient<IValidator<UserRegisterDto>, UserRegisterDtoValidator>();
         }
     }
 }

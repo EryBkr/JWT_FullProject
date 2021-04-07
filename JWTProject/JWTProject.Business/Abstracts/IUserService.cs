@@ -1,4 +1,5 @@
 ﻿using JWTProject.Entities.Concrete;
+using JWTProject.Entities.DTO.UserDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,8 @@ namespace JWTProject.Business.Abstracts
 {
    public interface IUserService : IGenericService<AppUser>
     {
+        Task<AppUser> FindByUserName(string userName);
+        Task<bool> CheckPassword(UserLoginDto user);
+        Task<List<AppRole>> GetRolesByUserName(string userName);
     }
 }

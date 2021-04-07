@@ -1,8 +1,10 @@
 using AutoMapper;
 using FluentValidation.AspNetCore;
 using JWTProject.Business.DependencyResolvers.MicrosoftIoC;
+using JWTProject.Business.StringInfos;
 using JWTProject.WebAPI.CustomFilters;
 using JWTProject.WebAPI.Mapping.AutoMapperProfile;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,10 +13,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace JWTProject.WebAPI
@@ -31,7 +35,7 @@ namespace JWTProject.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+           
             services.AddControllers().AddFluentValidation();
             services.AddSwaggerGen(c =>
             {
@@ -50,6 +54,24 @@ namespace JWTProject.WebAPI
             });
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
+
+            //ADD JWT CONFIG
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt => 
+            {
+                opt.RequireHttpsMetadata = false;//HTTP ile çalýþmak durumundayýz bu yüzden SSL zorunluluðunu kaldýrýyoruz
+
+                //Token özellikleri
+                opt.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidIssuer = JwtInfo.Issuer, //Kim oluþturdu
+                    ValidAudience = JwtInfo.Auidience, //Kim için oluþturuldu
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtInfo.SecurityKey)),
+                    ValidateIssuerSigningKey = true,//Key doðrulamasý yapýlsýn mý
+                    ValidateLifetime = true,//Token süresi kontrol edilsin mi ?
+                    ClockSkew=TimeSpan.Zero //Zaman farký oluþmamasý için ekledik
+                };
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

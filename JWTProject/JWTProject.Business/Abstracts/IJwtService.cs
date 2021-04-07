@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JWTProject.DataAccess.Abstracts
+namespace JWTProject.Business.Abstracts
 {
-    public interface IUserDal:IGenericDal<AppUser>
+    public interface IJwtService
     {
-        Task<List<AppRole>> GetRolesByUserName(string userName);
+        string GenerateJwt(AppUser appUser, List<AppRole> roles);
     }
 }
