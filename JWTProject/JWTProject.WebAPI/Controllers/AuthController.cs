@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using JWTProject.Business.Abstracts;
+using JWTProject.Business.StringInfos;
 using JWTProject.Entities.Concrete;
 using JWTProject.Entities.DTO.UserDtos;
 using JWTProject.WebAPI.CustomFilters;
@@ -49,7 +50,8 @@ namespace JWTProject.WebAPI.Controllers
 
         [HttpPost("[action]")]
         [ValidModel] //Model.StateIsValid kontrolü yaptığımız ActionFilter
-        public async Task<IActionResult> Register(UserRegisterDto model)
+        //FromServices eğer bir controllerda sadece bir action da kullancağımız bir servis varsa DI ı o metodun parametresinde yapıyoruz
+        public async Task<IActionResult> Register(UserRegisterDto model,[FromServices] IUserRoleService userRoleService, [FromServices] IRoleService roleService)
         {
             var user = await _userService.FindByUserName(model.UserName);
             if (user != null)
@@ -57,6 +59,12 @@ namespace JWTProject.WebAPI.Controllers
             else
             {
                 await _userService.AddAsync(_mapper.Map<AppUser>(model));
+
+                //Kullanıcıya Member Rolünü atadık
+                var addedUser = await _userService.FindByUserName(model.UserName);
+                var role = await roleService.FindByName(RoleInfos.Member);
+                await userRoleService.AddAsync(new AppUserRole { AppRoleId = role.Id, AppUserId = addedUser.Id });
+
                 return Created("Başarılıyla kayıt olundu",model);
             }
         }

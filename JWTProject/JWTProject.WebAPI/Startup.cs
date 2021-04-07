@@ -1,8 +1,10 @@
 using AutoMapper;
 using FluentValidation.AspNetCore;
+using JWTProject.Business.Abstracts;
 using JWTProject.Business.DependencyResolvers.MicrosoftIoC;
 using JWTProject.Business.StringInfos;
 using JWTProject.WebAPI.CustomFilters;
+using JWTProject.WebAPI.Initilaizer;
 using JWTProject.WebAPI.Mapping.AutoMapperProfile;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -74,8 +76,8 @@ namespace JWTProject.WebAPI
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        // Servisleri buraya ekleme nedenimiz metodumuz bizden parametre beklemektedir
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IUserService userService, IUserRoleService userRoleService, IRoleService roleService)
         {
             if (env.IsDevelopment())
             {
@@ -86,6 +88,10 @@ namespace JWTProject.WebAPI
 
             //Merkezi hata yakalama Action na yönlendirdik.Beklenmedik bir hata oluþtuðunda bunu genel olarak yakalamak önemlidir
             app.UseExceptionHandler("/Error");
+
+            //Proje ayaða kalkarken temel üyelerin ekliyoruz
+            //Wait kullanma nedenimiz metodun kullanýldýðý metot async deðil.
+            JwtIdentityInitilaizer.Seed(userService, userRoleService, roleService).Wait();
 
             app.UseHttpsRedirection();
 

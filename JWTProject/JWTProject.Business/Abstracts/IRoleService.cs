@@ -9,5 +9,6 @@ namespace JWTProject.Business.Abstracts
 {
    public interface IRoleService : IGenericService<AppRole>
     {
+        Task<AppRole> FindByName(string roleName);
     }
 }
