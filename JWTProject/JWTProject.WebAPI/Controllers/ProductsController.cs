@@ -70,5 +70,8 @@ namespace JWTProject.WebAPI.Controllers
             await _productService.RemoveAsync(product);
             return NoContent();
         }
+
+
+       
     }
 }

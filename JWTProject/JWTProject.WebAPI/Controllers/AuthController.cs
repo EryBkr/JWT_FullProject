@@ -3,7 +3,9 @@ using JWTProject.Business.Abstracts;
 using JWTProject.Business.StringInfos;
 using JWTProject.Entities.Concrete;
 using JWTProject.Entities.DTO.UserDtos;
+using JWTProject.Entities.Token;
 using JWTProject.WebAPI.CustomFilters;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -42,7 +44,10 @@ namespace JWTProject.WebAPI.Controllers
                 {
                     var roles = await _userService.GetRolesByUserName(user.UserName);
                     var token = _jwtService.GenerateJwt(user, roles);
-                    return Created("", token);
+
+                    //Token i bir model ile birlikte dönüyorum
+                    var tokenModel = new GetTokenModel() {Token=token };
+                    return Created("", tokenModel);
                 }
                 return BadRequest("Kullanıcı Adı veya şifre hatalı");
             }
@@ -67,6 +72,28 @@ namespace JWTProject.WebAPI.Controllers
 
                 return Created("Başarılıyla kayıt olundu",model);
             }
+        }
+
+        //UI tarafının ihtiyacı olan username , roles gibi dataları geriye dönecek end-point
+        [HttpGet("[action]")]
+        [Authorize]
+        public async Task<IActionResult> GetActiveUser()
+        {
+            //Token dan user name bilgisini handle ediyoruz
+            var userName = User.Identity.Name;
+
+            var user = await _userService.FindByUserName(userName);
+            var roles = await _userService.GetRolesByUserName(userName);
+
+            //Geriye döneceğim Model i tanımlıyorum
+            var activeUser = new ActiveUserDto()
+            {
+                UserName = user.UserName,
+                Roles = roles.Select(i => i.Name).ToList()
+            };
+
+            return Ok(activeUser);
+
         }
 
     }
