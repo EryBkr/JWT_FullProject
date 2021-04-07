@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using JWTProject.Business.Abstracts;
+using JWTProject.Business.StringInfos;
 using JWTProject.Entities.Concrete;
 using JWTProject.Entities.DTO.ProductDtos;
 using JWTProject.WebAPI.CustomFilters;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -26,6 +28,7 @@ namespace JWTProject.WebAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = RoleInfos.Admin+","+RoleInfos.Member)] //Admin veya Member erişimi gereklidir
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _productService.GetAllAsync());
@@ -33,6 +36,7 @@ namespace JWTProject.WebAPI.Controllers
 
         [HttpGet("{id}")]
         [ServiceFilter(typeof(ValidId<Product>))] //DI ile çalışması için bu şekilde yazdık + olarak Generic Tipi tanımladık
+        [Authorize(Roles = RoleInfos.Admin + "," + RoleInfos.Member)] //Admin veya Member erişimi gereklidir
         public async Task<IActionResult> GetById(int id)
         {
             return Ok(await _productService.GetByIdAsync(id));
@@ -40,6 +44,7 @@ namespace JWTProject.WebAPI.Controllers
 
         [HttpPost]
         [ValidModel] //Validasyon kontrolünü ActionFilter ile yapıyoruz
+        [Authorize(Roles =RoleInfos.Admin)] //Admin erişimi gereklidir
         public async Task<IActionResult> Add(AddProductDto model)
         {
             await _productService.AddAsync(_mapper.Map<Product>(model));
@@ -49,6 +54,7 @@ namespace JWTProject.WebAPI.Controllers
         [HttpPut]
         [ValidModel] //Validasyon kontrolünü ActionFilter ile yapıyoruz
         [ServiceFilter(typeof(ValidId<Product>))] //DI ile çalışması için bu şekilde yazdık + olarak Generic Tipi tanımladık
+        [Authorize(Roles =RoleInfos.Admin)] //Admin erişimi gereklidir
         public async Task<IActionResult> Update(UpdateProductDto product)
         {
             await _productService.UpdateAsync(_mapper.Map<Product>(product));
@@ -57,6 +63,7 @@ namespace JWTProject.WebAPI.Controllers
 
         [HttpDelete("{id}")]
         [ServiceFilter(typeof(ValidId<Product>))] //DI ile çalışması için bu şekilde yazdık + olarak Generic Tipi tanımladık
+        [Authorize(Roles = RoleInfos.Admin)] //Admin erişimi gereklidir
         public async Task<IActionResult> Delete(int id)
         {
             var product = await _productService.GetByIdAsync(id);
