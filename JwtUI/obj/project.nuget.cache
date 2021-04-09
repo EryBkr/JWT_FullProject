@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "eazJiq5+LloATaxFXmD3KaqHly07PVmGeblc6FVdVsEvRRhCANOL1+Dw3fhIm3T5Z9CmhK4a0vKdtV27uiARMA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Blackerback\\OneDrive\\Masaüstü\\JWTExample\\JwtUI\\JwtUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Blackerback\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

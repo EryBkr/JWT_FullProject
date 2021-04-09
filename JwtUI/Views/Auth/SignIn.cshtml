@@ -1,0 +1,27 @@
+@model UserLogin
+
+
+<form method="post" class="w-75 mx-auto p-3 mt-4" action="">
+    <div class="form-group">
+        <label asp-for="UserName"></label>
+         <span class="text-danger"  asp-validation-for="UserName"></span>
+        <input asp-for="UserName" class="form-control" type="text" >
+    </div>
+
+     <div class="form-group">
+        <label asp-for="Password"></label>
+        <span class="text-danger" asp-validation-for="Password"></span>
+        <input asp-for="Password" class="form-control" type="password" >
+    </div>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <button class="btn btn-sm btn-primary" type="submit">Giriş Yap</button>
+    <a class="btn btn-sm btn-success" asp-action="SignUp" asp-controller="Auth">Kayıt Ol</a>
+</form>
+
+
+@section scripts {
+     <script src="/lib/validate/jquery.validate.min.js"></script>
+     <script src="/lib/validate/jquery.validate.unobtrusive.min.js"></script>
+}

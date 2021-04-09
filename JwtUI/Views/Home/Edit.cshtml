@@ -1,0 +1,20 @@
+@model ProductEdit
+
+<form method="post" class="w-75 mx-auto p-3 mt-4" action="">
+    <input  asp-for="Id"  type="hidden" >
+    <div class="form-group">
+        <label asp-for="Name"></label>
+         <span class="text-danger"  asp-validation-for="Name"></span>
+        <input asp-for="Name" class="form-control" type="text" >
+    </div>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <button class="btn btn-sm btn-primary" type="submit">Düzenle</button>
+    <a class="btn btn-sm btn-success" asp-action="Index" asp-controller="Home">Geri Dön</a>
+</form>
+
+@section scripts {
+     <script src="/lib/validate/jquery.validate.min.js"></script>
+     <script src="/lib/validate/jquery.validate.unobtrusive.min.js"></script>
+}

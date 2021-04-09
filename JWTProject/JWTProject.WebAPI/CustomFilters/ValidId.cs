@@ -28,7 +28,7 @@ namespace JWTProject.WebAPI.CustomFilters
         public void OnActionExecuting(ActionExecutingContext context)
         {
             //Parametre ismi id olan değeri yakaladık
-            var id=context.ActionArguments.Where(i => i.Key == "id").FirstOrDefault().Value;
+            var id=context.ActionArguments.Where(i => i.Key == "id" || i.Key=="Id").FirstOrDefault().Value;
             var checkedId = (int)id; //object olan id yi int yaptık
 
             //Result ekleme sebebimiz metodumuz asenkron değil

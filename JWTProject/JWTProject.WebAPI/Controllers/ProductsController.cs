@@ -53,7 +53,6 @@ namespace JWTProject.WebAPI.Controllers
 
         [HttpPut]
         [ValidModel] //Validasyon kontrolünü ActionFilter ile yapıyoruz
-        [ServiceFilter(typeof(ValidId<Product>))] //DI ile çalışması için bu şekilde yazdık + olarak Generic Tipi tanımladık
         [Authorize(Roles =RoleInfos.Admin)] //Admin erişimi gereklidir
         public async Task<IActionResult> Update(UpdateProductDto product)
         {
